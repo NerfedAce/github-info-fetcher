@@ -17,9 +17,9 @@ try :
             reverse=True
         )
         for x in range(min(len(repos), 5)):
-            print("name:  " ,repos[x]["name"])
-            print("stargazers_count:  " ,repos[x]["stargazers_count"])
-            print("description:  " ,repos[x]["description"])
+            print("Repository:   " ,repos[x]["name"])
+            print("Stars:        " ,repos[x]["stargazers_count"])
+            print("Description:  " ,repos[x]["description"])
             print("")
     else :
         i = 2
@@ -28,9 +28,9 @@ try :
             for x in data :
 
                 if x["name"] == sys.argv[i] :
-                    print("Repo : "+x["name"])
-                    print("star gazers : " +str(x["stargazers_count"]))
-                    print(x["description"] or "no description")
+                    print("Repository:   "+x["name"])
+                    print("Stars:        " +str(x["stargazers_count"]))
+                    print(("Description:  " +x["description"]) or "no description")
                     print("")
                     found = True
                     break

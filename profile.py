@@ -12,11 +12,11 @@ try :
         sys.exit(0)
     d = response.json()
     if len(sys.argv) == 2 :
-        print("email: " , d["email"] if "email" in d else "")
-        print("name: " , d["name"] if "name" in d else "")
-        print("location: " , d["location"] if "location" in d else "")
-        print("followers: " , str(d["followers"]) if "followers" in d else "")
-        print("following: " , str(d["following"]) if "following" in d else "")
+        print("email:      " , d["email"] if "email" in d else "")
+        print("name:       " , d["name"] if "name" in d else "")
+        print("location:   " , d["location"] if "location" in d else "")
+        print("followers:  " , str(d["followers"]) if "followers" in d else "")
+        print("following:  " , str(d["following"]) if "following" in d else "")
     elif len(sys.argv) > 2 :
         i = 2
         while i < len(sys.argv) :
