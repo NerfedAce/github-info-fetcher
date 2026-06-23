@@ -17,9 +17,9 @@ try :
             reverse=True
         )
         for x in range(min(len(repos), 5)):
-            print(repos[x]["name"])
-            print(repos[x]["stargazers_count"])
-            print(repos[x]["description"])
+            print("name:  " ,repos[x]["name"])
+            print("stargazers_count:  " ,repos[x]["stargazers_count"])
+            print("description:  " ,repos[x]["description"])
             print("")
     else :
         i = 2
