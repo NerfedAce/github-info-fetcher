@@ -1,64 +1,162 @@
-# GitHub CLI Tools
+# GitHub Info Fetcher
 
-A collection of simple Python CLI tools built using the GitHub API and the `requests` library.
+A simple Python CLI application that interacts with the GitHub REST API to fetch public profile information and repository details for any GitHub user.
+
+Built using **Python** and the **requests** library, with **Docker** support for containerized execution.
+
+---
+
+## Features
+
+### Profile Fetcher
+
+- Fetch public GitHub profile information
+- Display all profile details
+- Display only selected fields
+
+Supported fields:
+
+- Name
+- Email
+- Location
+- Followers
+- Following
+
+### Repository Fetcher
+
+- List a user's repositories
+- Fetch information for specific repositories
+- Display:
+  - Repository Name
+  - Star Count
+  - Description
+
+---
+
+## Project Structure
+
+```
+github-info-fetcher/
+│
+├── profile.py
+├── repo.py
+├── requirements.txt
+├── Dockerfile
+├── .dockerignore
+├── README.md
+└── .gitignore
+```
+
+---
 
 ## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/github-info-fetcher.git
+cd github-info-fetcher
+```
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Tools
+---
 
-### 1. GitHub Profile Fetcher
+## Usage
 
-Fetch public GitHub profile information for a user.
+### Profile Fetcher
 
-Show all available details:
-
-```bash
-python3 git_profile.py NerfedAce
-```
-
-Show only specific fields:
+Display all available information:
 
 ```bash
-python3 git_profile.py NerfedAce email name
+python3 profile.py NerfedAce
 ```
 
-Supported fields:
+Display only selected fields:
 
-* email
-* name
-* location
-* followers
-* following
+```bash
+python3 profile.py NerfedAce name location followers
+```
+
+Example:
+
+```
+Name: John Doe
+Location: India
+Followers: 245
+```
 
 ---
 
-### 2. GitHub Repository Info Fetcher
+### Repository Fetcher
 
-Fetch repository information for a GitHub user.
-
-Show the user's top repositories:
+Display all repositories:
 
 ```bash
-python3 git_repo.py NerfedAce
+python3 repo.py NerfedAce
 ```
 
-Show information for specific repositories:
+Display specific repositories:
 
 ```bash
-python3 git_repo.py NerfedAce my-project practice_repo_2
+python3 repo.py NerfedAce project-one project-two
 ```
 
-Displays:
+Example:
 
-* Repository name
-* Star count
-* Description
+```
+Repository: github-info-fetcher
+Stars: 12
+Description: CLI tool for fetching GitHub information
+```
+
+---
+
+## Docker
+
+### Build the image
+
+```bash
+docker build -t github-info-fetcher .
+```
+
+### Run Profile Fetcher
+
+```bash
+docker run --rm github-info-fetcher profile.py NerfedAce
+```
+
+### Run Repository Fetcher
+
+```bash
+docker run --rm github-info-fetcher repo.py NerfedAce
+```
+
+---
 
 ## Requirements
 
-* Python 3
-* requests
+- Python 3
+- requests
+- Docker (optional)
+
+---
+
+## Technologies Used
+
+- Python
+- GitHub REST API
+- requests
+- Docker
+- Git
+
+---
+
+
+## License
+
+This project is open source and available under the MIT License.
